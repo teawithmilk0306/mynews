@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ProfileController extends Controller
 {
     public function add()
-    {
+    {//課題３
         return view('admin.profile.create');
     }
 
@@ -18,7 +18,7 @@ class ProfileController extends Controller
     }
 
     public function edit()
-    {
+    {//課題３
         return view('admin.profile.edit');
     }
 
