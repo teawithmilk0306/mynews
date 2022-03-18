@@ -15,10 +15,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'admin'], function() {
-    Route::get('news/create', 'Admin\NewsController@add')->middleware('auth');
-    Route::get('profile/create', 'Admin\ProfileController@add')->middleware('auth');
-    Route::get('profile/edit', 'Admin\ProfileController@edit')->middleware('auth');
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+    Route::get('news/create', 'Admin\NewsController@add');
+    //Laravel 12の課題2
+    Route::get('profile/create', 'Admin\ProfileController@add');
+    //Laravel 12の課題3
+    Route::get('profile/edit', 'Admin\ProfileController@edit');
+    Route::post('news/create', 'Admin\NewsController@create');
+    //Laravel 13の課題3
+    Route::post('profile/create', 'Admin\ProfileController@create');
+    //Laravel 13の課題6
+    Route::post('profile/edit', 'Admin\ProfileController@update');
+    
 });
 
 //Route::get('admin/profile/create', 'Admin\ProfileController@add');
@@ -32,3 +40,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
