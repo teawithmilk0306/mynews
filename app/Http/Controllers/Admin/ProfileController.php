@@ -8,12 +8,27 @@ use Illuminate\Http\Request;
 class ProfileController extends Controller
 {
     public function add()
-    {//課題３
+    {
         return view('admin.profile.create');
     }
 
     public function create()
     {
+        // 以下を追記
+      // Varidationを行う
+      $this->validate($request, News::$rules);
+
+      $news = new News;
+      $form = $request->all();
+
+
+      // フォームから送信されてきた_tokenを削除する
+      unset($form['_token']);
+     
+      // データベースに保存する
+      $news->fill($form);
+      $news->save();
+
         return redirect('admin/profile/create');
     }
 
