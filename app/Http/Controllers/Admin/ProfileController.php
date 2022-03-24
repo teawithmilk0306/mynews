@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Profile;
 
 class ProfileController extends Controller
 {
@@ -12,13 +13,13 @@ class ProfileController extends Controller
         return view('admin.profile.create');
     }
 
-    public function create()
+    public function create(Request $request)
     {
         // 以下を追記
       // Varidationを行う
-      $this->validate($request, News::$rules);
+      $this->validate($request, Profile::$rules);
 
-      $news = new News;
+      $profile = new Profile;
       $form = $request->all();
 
 
@@ -26,8 +27,8 @@ class ProfileController extends Controller
       unset($form['_token']);
      
       // データベースに保存する
-      $news->fill($form);
-      $news->save();
+      $profile->fill($form);
+      $profile->save();
 
         return redirect('admin/profile/create');
     }
