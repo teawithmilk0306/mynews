@@ -23,6 +23,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('profile/edit', 'Admin\ProfileController@edit');
     Route::post('news/create', 'Admin\NewsController@create');
     //Laravel 13の課題3
+    Route::get('news', 'Admin\NewsController@index');
+    //一覧画面へのRoutingを設定
     Route::post('profile/create', 'Admin\ProfileController@create');
     //Laravel 13の課題6
     Route::post('profile/edit', 'Admin\ProfileController@update');
