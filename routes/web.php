@@ -28,6 +28,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::post('profile/create', 'Admin\ProfileController@create');
     //Laravel 13の課題6
     Route::post('profile/edit', 'Admin\ProfileController@update');
+    //edit Actionは編集画面を処理する部分
+    Route::get('news/edit', 'Admin\NewsController@edit');
+    //update Actionは編集画面から送信されたフォームデータを処理する部分
+    Route::post('news/edit', 'Admin\NewsController@update');
+    //削除機能は画面を持たず、id で指定されたModelをすぐに削除
+    Route::get('news/delete', 'Admin\NewsController@delete');
     
 });
 
