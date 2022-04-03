@@ -48,6 +48,21 @@
                         </div>
                     </div>
                 </form>
+                {{-- 記録した変更履歴を編集画面で参照できるようにしている --}}
+                {{-- 画面の下に編集履歴が表示されるよう実装 --}}
+                <div class="row mt-5">
+                    <div class="col-md-4 mx-auto">
+                        <h2>編集履歴</h2>
+                        <ul class="list-group">
+                            @if ($news_form->histories != NULL)
+                                {{-- $news->historiesを使うことで過去の編集履歴が見れる --}}
+                                @foreach ($news_form->histories as $history)
+                                    <li class="list-group-item">{{ $history->edited_at }}</li>
+                                @endforeach
+                            @endif
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
