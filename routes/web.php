@@ -34,6 +34,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::post('news/edit', 'Admin\NewsController@update');
     //削除機能は画面を持たず、id で指定されたModelをすぐに削除
     Route::get('news/delete', 'Admin\NewsController@delete');
+    Route::get('profile/delete', 'Admin\ProfileController@delete');
+    Route::get('profile', 'Admin\ProfileController@index');
     
 });
 
