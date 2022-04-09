@@ -54,8 +54,13 @@
                     <div class="col-md-4 mx-auto">
                         <h2>編集履歴</h2>
                         <ul class="list-group">
+                            {{-- $news_formにはnewsレコードが入っている --}}
+                            {{-- historiesはapp/News.phpで定義したhasManyを使ったメソッド --}}
+                            {{-- $news->historiesを使うことで過去の編集履歴が見れる --}}
+                            {{-- このnewsレコードに関連しているhistoriesテーブルすべてを取得するメソッドを使うから、newsの変更履歴一覧を取得できる --}}
+                            {{--  if文で$news_form->historiesが存在しているかどうかチェック --}}
                             @if ($news_form->histories != NULL)
-                                {{-- $news->historiesを使うことで過去の編集履歴が見れる --}}
+                                {{-- nullでない場合のみforeachを回すように記載 --}}
                                 @foreach ($news_form->histories as $history)
                                     <li class="list-group-item">{{ $history->edited_at }}</li>
                                 @endforeach

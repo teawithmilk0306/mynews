@@ -15,7 +15,7 @@ class News extends Model
     );
     // News Modelに関連付けを行う
     public function histories()
-    {
+    {   //hasManyメソッドは関連付いているレコードの一覧を取得するためのメソッド（例）Twitter
         return $this->hasMany('App\History');
 
     }
