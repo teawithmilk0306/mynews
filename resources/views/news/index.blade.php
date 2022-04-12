@@ -2,6 +2,10 @@
 
 @section('content')
     <div class="container">
+         <p>
+    <h1>ニュース一覧</h1>
+    <p/>
+    <br>
         <hr color="#c0c0c0">
         {{-- @if !is_null($headline)は、$headlineが空なら飛ばして（実行しない）、データがあれば実行するという意味 --}}
         @if (!is_null($headline))
