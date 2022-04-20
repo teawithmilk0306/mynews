@@ -19,7 +19,7 @@
                                          {{--assetは、「publicディレクトリ」のパスを返すヘルパとなっています。ヘルパとはviewファイルで使えるメソッドのこと
                                          現在のURLのスキーマ（httpかhttps）を使い、アセットへのURLを生成するメソッド
                                         $headline->image_pathは、保存した画像のファイル名が入ってる。--}}
-                                        <img src="{{ asset('storage/image/' . $headline->image_path) }}">
+                                        <img src="{{ $headline->image_path }}">
                                     @endif
                                 </div>
                                 <div class="title p-2">
@@ -54,7 +54,7 @@
                             </div>
                             <div class="image col-md-6 text-right mt-4">
                                 @if ($post->image_path)
-                                    <img src="{{ asset('storage/image/' . $post->image_path) }}">
+                                    <img src="{{ $post->image_path }}">
                                 @endif
                             </div>
                         </div>
