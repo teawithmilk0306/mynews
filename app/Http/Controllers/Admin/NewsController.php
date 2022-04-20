@@ -37,7 +37,7 @@ class NewsController extends Controller
         if (isset($form['image'])) {
             //AWS S3への画像の保存ができるようになった。
             //file('image')画像をアップロードするメソッド  
-            $path = Storage::disk('s3')->putFile('/',$news_form['image'],'public');
+            $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
             //$pathの中は「public/image/ハッシュ化されたファイル名」が入っている。
             //basenameパスではなくファイル名だけ取得するメソッド
             $news->image_path = Storage::disk('s3')->url($path);
