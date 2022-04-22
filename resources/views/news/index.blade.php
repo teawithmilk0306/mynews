@@ -2,10 +2,9 @@
 
 @section('content')
     <div class="container">
-         <p>
-    <h1>karinニュース一覧</h1>
-    <p/>
-    <br>
+        <h1>karinニュース一覧</h1>
+        <p>あいうえお</p>
+        <br>
         <hr color="#c0c0c0">
         {{-- @if !is_null($headline)は、$headlineが空なら飛ばして（実行しない）、データがあれば実行するという意味 --}}
         @if (!is_null($headline))
@@ -19,7 +18,8 @@
                                          {{--assetは、「publicディレクトリ」のパスを返すヘルパとなっています。ヘルパとはviewファイルで使えるメソッドのこと
                                          現在のURLのスキーマ（httpかhttps）を使い、アセットへのURLを生成するメソッド
                                         $headline->image_pathは、保存した画像のファイル名が入ってる。--}}
-                                        <img src="{{ asset('storage/image/' . $headline->image_path) }}">
+                                        {{-- 画像の表示はS3へのリンクに表示の変更--}}
+                                        <img src="{{ $headline->image_path }}">
                                     @endif
                                 </div>
                                 <div class="title p-2">
